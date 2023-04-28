@@ -12,9 +12,19 @@ namespace MatrixProcessing
 {
     public partial class MatrixProccesing : Form
     {
-        public MatrixProccesing()
+        public MatrixProccesing(string fileName, MatrixOperations matrix)
         {
             InitializeComponent();
+        }
+
+        private void MatrixProccesing_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BackButton_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
