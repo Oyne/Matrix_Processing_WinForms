@@ -46,6 +46,7 @@
             OperationOneRButton = new RadioButton();
             OperationButton = new Button();
             BackButton = new Button();
+            ResultTextBox = new TextBox();
             ((System.ComponentModel.ISupportInitialize)MatrixGridView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ResultMatrixGridView).BeginInit();
             groupBox1.SuspendLayout();
@@ -251,12 +252,23 @@
             BackButton.UseVisualStyleBackColor = true;
             BackButton.Click += BackButton_Click;
             // 
+            // ResultTextBox
+            // 
+            ResultTextBox.BackColor = Color.FromArgb(64, 64, 64);
+            ResultTextBox.ForeColor = Color.FromArgb(255, 224, 192);
+            ResultTextBox.Location = new Point(567, 444);
+            ResultTextBox.Name = "ResultTextBox";
+            ResultTextBox.ReadOnly = true;
+            ResultTextBox.Size = new Size(342, 27);
+            ResultTextBox.TabIndex = 8;
+            // 
             // MatrixProccesing
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(64, 64, 64);
             ClientSize = new Size(925, 514);
+            Controls.Add(ResultTextBox);
             Controls.Add(BackButton);
             Controls.Add(groupBox1);
             Controls.Add(SaveButton);
@@ -291,5 +303,6 @@
         private RadioButton OperationOneRButton;
         private Button OperationButton;
         private Button BackButton;
+        private TextBox ResultTextBox;
     }
 }

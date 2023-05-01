@@ -17,7 +17,10 @@ namespace MatrixProcessing
     public partial class MatrixProccesing : Form
     {
         string file_name;
+        string result_file_name;
         MatrixOperations matrix;
+        int[,] matrix_result;
+        string string_result;
 
         public MatrixProccesing(string file_name, MatrixOperations matrix)
         {
@@ -49,24 +52,39 @@ namespace MatrixProcessing
 
             if (ExportFileDialog.ShowDialog() == DialogResult.OK)
             {
-                file_name = ExportFileDialog.FileName;
-                string json = JsonSerializer.Serialize(matrix.Value, options);
-                File.WriteAllText(file_name, json);
+                result_file_name = ExportFileDialog.FileName;
+                string json;
+
+                if (OperationOneRButton.Checked)
+                {
+                    json = JsonSerializer.Serialize(matrix_result, options);
+                    File.WriteAllText(result_file_name, json);
+                }
+                else
+                {
+                    json = JsonSerializer.Serialize(string_result);
+                    File.WriteAllText(result_file_name, json);
+                }
             }
         }
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            if (file_name != null)
-            {
-                var options = new JsonSerializerOptions();
-                options.Converters.Add(new TwoDimensionalIntArrayJsonConverter());
+            var options = new JsonSerializerOptions();
+            options.Converters.Add(new TwoDimensionalIntArrayJsonConverter());
 
+            SaveFileDialog SaveFileDialog = new SaveFileDialog();
+            SaveFileDialog.InitialDirectory = "Desktop";
+            SaveFileDialog.Title = "Export file";
+            SaveFileDialog.Filter = "json files (*.json)|*.json|All files (*.*)|*.*";
+            SaveFileDialog.AddExtension = true;
+
+            if (SaveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                file_name = SaveFileDialog.FileName;
                 string json = JsonSerializer.Serialize(matrix.Value, options);
                 File.WriteAllText(file_name, json);
             }
-            else
-                MessageBox.Show("No file opened", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
         private void MatrixOutput(DataGridView Grid, int[,] matrix)
@@ -93,18 +111,34 @@ namespace MatrixProcessing
             }
 
             for (int i = 0; i < row_col_count; i++)
-            {
                 for (int j = 0; j < row_col_count; j++)
                     Grid[j + 1, i + 1].Value = matrix[i, j];
-            }
         }
 
         private void OperationButton_Click(object sender, EventArgs e)
         {
+            ResultTextBox.Text = "";
             if (OperationOneRButton.Checked)
             {
-                matrix.OperationOne();
+                matrix_result = matrix.OperationOne();
+                MatrixOutput(ResultMatrixGridView, matrix_result);
+                ResultTextBox.Text = $"Matrix rows were sorted";
+
+            }
+            else if (OperationTwoRButton.Checked)
+            {
+                int d = matrix.OperationTwo();
+                string_result = $"D = {d}";
+                ResultTextBox.Text = string_result;
+            }
+            else if (OperationThreeRButton.Checked)
+            {
+                int[,] positions = matrix.OperationThree();
                 MatrixOutput(ResultMatrixGridView, matrix.Value);
+                for (int i = 0; i < positions.GetLength(0); i++)
+                    ResultMatrixGridView[positions[i, 1] + 1, positions[i, 0] + 1].Style.ForeColor = Color.FromArgb(192, 255, 192);
+                string_result = $"Number of prime numbers = {positions.GetLength(0)}";
+                ResultTextBox.Text = string_result;
             }
         }
     }

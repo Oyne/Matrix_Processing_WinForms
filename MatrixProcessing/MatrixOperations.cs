@@ -6,6 +6,8 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Text.Json;
 using System.Threading.Tasks;
+using System.Security.Cryptography.Xml;
+using System.Drawing.Drawing2D;
 
 namespace MatrixProcessing
 {
@@ -49,31 +51,47 @@ namespace MatrixProcessing
         /// Find min, max element of array and median.
         /// </summary>
         /// <returns>Min, max, median.</returns>
-        public void OperationOne()
+        public int[,] OperationOne()
         {
-            if (_matrix is not null)
+            int[,] copy = (int[,])_matrix.Clone();
+            if (copy is not null)
 
-                for (int row = 0; row < _matrix.GetLength(0); row++)
+                for (int row = 0; row < copy.GetLength(0); row++)
 
-                    for (int col = 0; col < _matrix.GetLength(1); col++)
+                    for (int col = 0; col < copy.GetLength(1); col++)
 
-                        for (int i = col + 1; i < _matrix.GetLength(1); i++)
+                        for (int i = col + 1; i < copy.GetLength(1); i++)
                         {
-                            if (_matrix[row, col] > _matrix[row, i])
+                            if (copy[row, col] > copy[row, i])
                             {
-                                int tmp = _matrix[row, i];
-                                _matrix[row, i] = _matrix[row, col];
-                                _matrix[row, col] = tmp;
+                                int tmp = copy[row, i];
+                                copy[row, i] = copy[row, col];
+                                copy[row, col] = tmp;
                             }
                         }
+            return copy;
+        }
+
+        private int Sr()
+        {
+
+            int sum = 0;
+            for (int i = 0; i < _matrix.GetLength(0); i++)
+                for (int j = 0; j < _matrix.GetLength(1); j++)
+                    sum += _matrix[i, j];
+            return sum / _matrix.Length;
         }
 
         /// <summary>
         /// Sort elements in descending order.
         /// </summary>
-        public void OperationTwo()
+        public int OperationTwo()
         {
-        
+            int sum = 0;
+            for (int i = 0; i < _matrix.GetLength(0); i++)
+                for (int j = 0; j < _matrix.GetLength(1); j++)
+                    sum += (int)Math.Pow((_matrix[i, j] - Sr()), 2);
+            return sum / (_matrix.Length - 1);
         }
 
         /// <summary>
@@ -81,18 +99,40 @@ namespace MatrixProcessing
         /// in which number created from last and third from end digits, element also must be even.
         /// </summary>
         /// <returns>Number, sum.</returns>
-        public void OperationThree()
+        public int[,] OperationThree()
         {
-        }
+            List<int> x = new List<int>();
+            List<int> y = new List<int>();
 
-
-        /// <summary>
-        /// Calculate sum and number of elements of the array, 
-        /// in which number created from first and second digit, element also divisible by 5
-        /// </summary>
-        /// <returns>Number, sum.</returns>
-        public void OperationFour()
-        {
+            for (int i = 0; i < _matrix.GetLength(0); i++)
+                for (int j = 0; j < _matrix.GetLength(1); j++)
+                {
+                    bool flag = true;
+                    for (int el = 1; el <= Math.Sqrt(_matrix[i, j]); el++)
+                    {
+                        if (_matrix[i, j] % el == 0 && el != 1)
+                        {
+                            flag = false;
+                            break;
+                        }
+                    }
+                    if (flag)
+                    {
+                        if ((i + j) % 2 == 0)
+                        {
+                            x.Add(i);
+                            y.Add(j);
+                        }
+                    }
+                }
+         
+            int[,] positions = new int[x.Count, 2];
+            for (int i = 0; i < positions.GetLength(0); i++)
+            {
+                positions[i, 0] = x[i];
+                positions[i, 1] = y[i];
+            }
+            return positions;
         }
     }
 
