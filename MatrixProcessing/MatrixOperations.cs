@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace MatrixProcessing
@@ -15,18 +17,11 @@ namespace MatrixProcessing
         /// </summary>
         private int[,]? _matrix = null;
 
-        private int[,]? _modified_matrix = null;
-
         /// <summary>
         /// Array property.
         /// </summary>
         public int[,]? Value { get => _matrix; set => _matrix = value; }
 
-
-        /// <summary>
-        /// Array property.
-        /// </summary>
-        public int[,]? ModifiedValue { get => _modified_matrix; set => _modified_matrix = value; }
 
         /// <summary>
         /// Generates array with specified values.
@@ -56,20 +51,19 @@ namespace MatrixProcessing
         /// <returns>Min, max, median.</returns>
         public void OperationOne()
         {
-            _modified_matrix = _matrix;
-            if (_modified_matrix is not null)
+            if (_matrix is not null)
 
-                for (int row = 0; row < _modified_matrix.GetLength(0); row++)
+                for (int row = 0; row < _matrix.GetLength(0); row++)
 
-                    for (int col = 0; col < _modified_matrix.GetLength(1); col++)
+                    for (int col = 0; col < _matrix.GetLength(1); col++)
 
-                        for (int i = col + 1; i < _modified_matrix.GetLength(1); i++)
+                        for (int i = col + 1; i < _matrix.GetLength(1); i++)
                         {
-                            if (_modified_matrix[row, col] > _modified_matrix[row, i])
+                            if (_matrix[row, col] > _matrix[row, i])
                             {
-                                int tmp = _modified_matrix[row, i];
-                                _modified_matrix[row, i] = _modified_matrix[row, col];
-                                _modified_matrix[row, col] = tmp;
+                                int tmp = _matrix[row, i];
+                                _matrix[row, i] = _matrix[row, col];
+                                _matrix[row, col] = tmp;
                             }
                         }
         }
@@ -99,6 +93,47 @@ namespace MatrixProcessing
         /// <returns>Number, sum.</returns>
         public void OperationFour()
         {
+        }
+    }
+
+    public class TwoDimensionalIntArrayJsonConverter : JsonConverter<int[,]>
+    {
+        public override int[,]? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+        {
+            using var jsonDoc = JsonDocument.ParseValue(ref reader);
+
+            var rowLength = jsonDoc.RootElement.GetArrayLength();
+            var columnLength = jsonDoc.RootElement.EnumerateArray().First().GetArrayLength();
+
+            int[,] grid = new int[rowLength, columnLength];
+
+            int row = 0;
+            foreach (var array in jsonDoc.RootElement.EnumerateArray())
+            {
+                int column = 0;
+                foreach (var number in array.EnumerateArray())
+                {
+                    grid[row, column] = number.GetInt32();
+                    column++;
+                }
+                row++;
+            }
+
+            return grid;
+        }
+        public override void Write(Utf8JsonWriter writer, int[,] value, JsonSerializerOptions options)
+        {
+            writer.WriteStartArray();
+            for (int i = 0; i < value.GetLength(0); i++)
+            {
+                writer.WriteStartArray();
+                for (int j = 0; j < value.GetLength(1); j++)
+                {
+                    writer.WriteNumberValue(value[i, j]);
+                }
+                writer.WriteEndArray();
+            }
+            writer.WriteEndArray();
         }
     }
 }

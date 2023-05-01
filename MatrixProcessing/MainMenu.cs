@@ -34,6 +34,9 @@ namespace MatrixProcessing
 
         private void ImportButton_Click(object sender, EventArgs e)
         {
+            var options = new JsonSerializerOptions();
+            options.Converters.Add(new TwoDimensionalIntArrayJsonConverter());
+
             OpenFileDialog ImportFileDialog = new OpenFileDialog();
             ImportFileDialog.InitialDirectory = "Desktop";
             ImportFileDialog.Filter = "json files (*.json)|*.json|All files (*.*)|*.*";
@@ -45,16 +48,22 @@ namespace MatrixProcessing
             {
                 _file_name = ImportFileDialog.FileName;
                 string json = File.ReadAllText(_file_name);
-                //_matrix.Value = JsonSerializer.Deserialize<int[][]>(json);
+                _matrix.Value = JsonSerializer.Deserialize<int[,]>(json, options);
+                _proccesing = new MatrixProccesing(_file_name, _matrix);
+                _proccesing.ShowDialog();
             }
         }
 
         private void GenerateButton_Click(object sender, EventArgs e)
         {
-            _matrix.GenerateMatrix(Convert.ToInt32(SizeUpDown.Value), Convert.ToInt32(MinUpDown.Value), Convert.ToInt32(MaxUpDown.Value));
-            _proccesing = new MatrixProccesing(_file_name, _matrix);
-
-            _proccesing.ShowDialog();
+            if (Convert.ToInt32(SizeUpDown.Value) < 1)
+                MessageBox.Show("Size can`t be zero", "WARNING", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else
+            {
+                _matrix.GenerateMatrix(Convert.ToInt32(SizeUpDown.Value), Convert.ToInt32(MinUpDown.Value), Convert.ToInt32(MaxUpDown.Value));
+                _proccesing = new MatrixProccesing(_file_name, _matrix);
+                _proccesing.ShowDialog();
+            }
         }
     }
 }

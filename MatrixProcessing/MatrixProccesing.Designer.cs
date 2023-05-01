@@ -31,33 +31,41 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MatrixProccesing));
-            dataGridView1 = new DataGridView();
-            dataGridView2 = new DataGridView();
+            MatrixGridView = new DataGridView();
+            ResultMatrixGridView = new DataGridView();
             label1 = new Label();
             label2 = new Label();
-            button1 = new Button();
-            button2 = new Button();
+            ExportButton = new Button();
+            SaveButton = new Button();
             groupBox1 = new GroupBox();
-            radioButton3 = new RadioButton();
-            radioButton2 = new RadioButton();
-            radioButton1 = new RadioButton();
-            button3 = new Button();
+            OperationThreeRButton = new RadioButton();
+            OperationTwoRButton = new RadioButton();
+            OperationOneRButton = new RadioButton();
+            OperationButton = new Button();
             BackButton = new Button();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)MatrixGridView).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)ResultMatrixGridView).BeginInit();
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
-            // dataGridView1
+            // MatrixGridView
             // 
+            MatrixGridView.AllowUserToAddRows = false;
+            MatrixGridView.AllowUserToDeleteRows = false;
+            MatrixGridView.AllowUserToResizeColumns = false;
+            MatrixGridView.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = Color.FromArgb(64, 64, 64);
             dataGridViewCellStyle1.ForeColor = Color.FromArgb(255, 224, 192);
             dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(64, 64, 64);
-            dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridView1.BackgroundColor = Color.FromArgb(64, 64, 64);
-            dataGridView1.BorderStyle = BorderStyle.Fixed3D;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            MatrixGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            MatrixGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            MatrixGridView.BackgroundColor = Color.FromArgb(64, 64, 64);
+            MatrixGridView.BorderStyle = BorderStyle.Fixed3D;
+            MatrixGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            MatrixGridView.ColumnHeadersVisible = false;
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = Color.FromArgb(64, 64, 64);
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
@@ -65,11 +73,11 @@
             dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(64, 64, 64);
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-            dataGridView1.GridColor = Color.White;
-            dataGridView1.Location = new Point(18, 74);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.ReadOnly = true;
+            MatrixGridView.DefaultCellStyle = dataGridViewCellStyle2;
+            MatrixGridView.GridColor = Color.White;
+            MatrixGridView.Location = new Point(18, 74);
+            MatrixGridView.Name = "MatrixGridView";
+            MatrixGridView.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = Color.FromArgb(64, 64, 64);
             dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
@@ -77,25 +85,49 @@
             dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(64, 64, 64);
             dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.RowTemplate.Height = 29;
-            dataGridView1.Size = new Size(342, 426);
-            dataGridView1.TabIndex = 0;
+            MatrixGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            MatrixGridView.RowHeadersVisible = false;
+            MatrixGridView.RowHeadersWidth = 51;
+            MatrixGridView.RowTemplate.Height = 29;
+            MatrixGridView.Size = new Size(342, 334);
+            MatrixGridView.TabIndex = 0;
             // 
-            // dataGridView2
+            // ResultMatrixGridView
             // 
-            dataGridView2.BackgroundColor = Color.FromArgb(64, 64, 64);
-            dataGridView2.BorderStyle = BorderStyle.Fixed3D;
-            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView2.GridColor = Color.White;
-            dataGridView2.Location = new Point(567, 74);
-            dataGridView2.Name = "dataGridView2";
-            dataGridView2.ReadOnly = true;
-            dataGridView2.RowHeadersWidth = 51;
-            dataGridView2.RowTemplate.Height = 29;
-            dataGridView2.Size = new Size(342, 426);
-            dataGridView2.TabIndex = 1;
+            ResultMatrixGridView.AllowUserToAddRows = false;
+            ResultMatrixGridView.AllowUserToDeleteRows = false;
+            ResultMatrixGridView.AllowUserToResizeColumns = false;
+            ResultMatrixGridView.AllowUserToResizeRows = false;
+            ResultMatrixGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            ResultMatrixGridView.BackgroundColor = Color.FromArgb(64, 64, 64);
+            ResultMatrixGridView.BorderStyle = BorderStyle.Fixed3D;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(64, 64, 64);
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle4.ForeColor = Color.FromArgb(255, 224, 192);
+            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(64, 64, 64);
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            ResultMatrixGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            ResultMatrixGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            ResultMatrixGridView.ColumnHeadersVisible = false;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = Color.FromArgb(64, 64, 64);
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            dataGridViewCellStyle5.ForeColor = Color.FromArgb(255, 224, 192);
+            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(64, 64, 64);
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
+            ResultMatrixGridView.DefaultCellStyle = dataGridViewCellStyle5;
+            ResultMatrixGridView.GridColor = Color.White;
+            ResultMatrixGridView.Location = new Point(567, 74);
+            ResultMatrixGridView.Name = "ResultMatrixGridView";
+            ResultMatrixGridView.ReadOnly = true;
+            ResultMatrixGridView.RowHeadersVisible = false;
+            ResultMatrixGridView.RowHeadersWidth = 51;
+            ResultMatrixGridView.RowTemplate.Height = 29;
+            ResultMatrixGridView.Size = new Size(342, 334);
+            ResultMatrixGridView.TabIndex = 1;
             // 
             // label1
             // 
@@ -119,36 +151,38 @@
             label2.TabIndex = 3;
             label2.Text = "Result";
             // 
-            // button1
+            // ExportButton
             // 
-            button1.BackgroundImage = (Image)resources.GetObject("button1.BackgroundImage");
-            button1.BackgroundImageLayout = ImageLayout.Center;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatStyle = FlatStyle.Flat;
-            button1.Location = new Point(468, 414);
-            button1.Name = "button1";
-            button1.Size = new Size(93, 86);
-            button1.TabIndex = 4;
-            button1.UseVisualStyleBackColor = true;
+            ExportButton.BackgroundImage = (Image)resources.GetObject("ExportButton.BackgroundImage");
+            ExportButton.BackgroundImageLayout = ImageLayout.Center;
+            ExportButton.FlatAppearance.BorderSize = 0;
+            ExportButton.FlatStyle = FlatStyle.Flat;
+            ExportButton.Location = new Point(468, 414);
+            ExportButton.Name = "ExportButton";
+            ExportButton.Size = new Size(93, 86);
+            ExportButton.TabIndex = 4;
+            ExportButton.UseVisualStyleBackColor = true;
+            ExportButton.Click += ExportButton_Click;
             // 
-            // button2
+            // SaveButton
             // 
-            button2.BackgroundImage = (Image)resources.GetObject("button2.BackgroundImage");
-            button2.BackgroundImageLayout = ImageLayout.Center;
-            button2.FlatAppearance.BorderSize = 0;
-            button2.FlatStyle = FlatStyle.Flat;
-            button2.Location = new Point(366, 414);
-            button2.Name = "button2";
-            button2.Size = new Size(93, 86);
-            button2.TabIndex = 5;
-            button2.UseVisualStyleBackColor = true;
+            SaveButton.BackgroundImage = (Image)resources.GetObject("SaveButton.BackgroundImage");
+            SaveButton.BackgroundImageLayout = ImageLayout.Center;
+            SaveButton.FlatAppearance.BorderSize = 0;
+            SaveButton.FlatStyle = FlatStyle.Flat;
+            SaveButton.Location = new Point(366, 414);
+            SaveButton.Name = "SaveButton";
+            SaveButton.Size = new Size(93, 86);
+            SaveButton.TabIndex = 5;
+            SaveButton.UseVisualStyleBackColor = true;
+            SaveButton.Click += SaveButton_Click;
             // 
             // groupBox1
             // 
-            groupBox1.Controls.Add(radioButton3);
-            groupBox1.Controls.Add(radioButton2);
-            groupBox1.Controls.Add(radioButton1);
-            groupBox1.Controls.Add(button3);
+            groupBox1.Controls.Add(OperationThreeRButton);
+            groupBox1.Controls.Add(OperationTwoRButton);
+            groupBox1.Controls.Add(OperationOneRButton);
+            groupBox1.Controls.Add(OperationButton);
             groupBox1.ForeColor = Color.FromArgb(255, 224, 192);
             groupBox1.Location = new Point(367, 64);
             groupBox1.Name = "groupBox1";
@@ -157,52 +191,52 @@
             groupBox1.TabStop = false;
             groupBox1.Text = "Operations";
             // 
-            // radioButton3
+            // OperationThreeRButton
             // 
-            radioButton3.AutoSize = true;
-            radioButton3.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point);
-            radioButton3.Location = new Point(5, 128);
-            radioButton3.Name = "radioButton3";
-            radioButton3.Size = new Size(185, 42);
-            radioButton3.TabIndex = 3;
-            radioButton3.TabStop = true;
-            radioButton3.Text = "Operation 3";
-            radioButton3.UseVisualStyleBackColor = true;
+            OperationThreeRButton.AutoSize = true;
+            OperationThreeRButton.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point);
+            OperationThreeRButton.Location = new Point(5, 128);
+            OperationThreeRButton.Name = "OperationThreeRButton";
+            OperationThreeRButton.Size = new Size(185, 42);
+            OperationThreeRButton.TabIndex = 3;
+            OperationThreeRButton.Text = "Operation 3";
+            OperationThreeRButton.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // OperationTwoRButton
             // 
-            radioButton2.AutoSize = true;
-            radioButton2.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point);
-            radioButton2.Location = new Point(5, 77);
-            radioButton2.Name = "radioButton2";
-            radioButton2.Size = new Size(185, 42);
-            radioButton2.TabIndex = 2;
-            radioButton2.TabStop = true;
-            radioButton2.Text = "Operation 2";
-            radioButton2.UseVisualStyleBackColor = true;
+            OperationTwoRButton.AutoSize = true;
+            OperationTwoRButton.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point);
+            OperationTwoRButton.Location = new Point(5, 77);
+            OperationTwoRButton.Name = "OperationTwoRButton";
+            OperationTwoRButton.Size = new Size(185, 42);
+            OperationTwoRButton.TabIndex = 2;
+            OperationTwoRButton.Text = "Operation 2";
+            OperationTwoRButton.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // OperationOneRButton
             // 
-            radioButton1.AutoSize = true;
-            radioButton1.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point);
-            radioButton1.Location = new Point(5, 26);
-            radioButton1.Name = "radioButton1";
-            radioButton1.Size = new Size(185, 42);
-            radioButton1.TabIndex = 1;
-            radioButton1.TabStop = true;
-            radioButton1.Text = "Operation 1";
-            radioButton1.UseVisualStyleBackColor = true;
+            OperationOneRButton.AutoSize = true;
+            OperationOneRButton.Checked = true;
+            OperationOneRButton.Font = new Font("Segoe UI", 16.2F, FontStyle.Regular, GraphicsUnit.Point);
+            OperationOneRButton.Location = new Point(5, 26);
+            OperationOneRButton.Name = "OperationOneRButton";
+            OperationOneRButton.Size = new Size(185, 42);
+            OperationOneRButton.TabIndex = 1;
+            OperationOneRButton.TabStop = true;
+            OperationOneRButton.Text = "Operation 1";
+            OperationOneRButton.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // OperationButton
             // 
-            button3.FlatStyle = FlatStyle.Flat;
-            button3.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Regular, GraphicsUnit.Point);
-            button3.Location = new Point(6, 179);
-            button3.Name = "button3";
-            button3.Size = new Size(182, 69);
-            button3.TabIndex = 0;
-            button3.Text = "Operation";
-            button3.UseVisualStyleBackColor = true;
+            OperationButton.FlatStyle = FlatStyle.Flat;
+            OperationButton.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Regular, GraphicsUnit.Point);
+            OperationButton.Location = new Point(6, 179);
+            OperationButton.Name = "OperationButton";
+            OperationButton.Size = new Size(182, 69);
+            OperationButton.TabIndex = 0;
+            OperationButton.Text = "Operation";
+            OperationButton.UseVisualStyleBackColor = true;
+            OperationButton.Click += OperationButton_Click;
             // 
             // BackButton
             // 
@@ -225,18 +259,18 @@
             ClientSize = new Size(925, 514);
             Controls.Add(BackButton);
             Controls.Add(groupBox1);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(SaveButton);
+            Controls.Add(ExportButton);
             Controls.Add(label2);
             Controls.Add(label1);
-            Controls.Add(dataGridView2);
-            Controls.Add(dataGridView1);
+            Controls.Add(ResultMatrixGridView);
+            Controls.Add(MatrixGridView);
             Name = "MatrixProccesing";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Matrix Proccesing";
             Load += MatrixProccesing_Load;
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)MatrixGridView).EndInit();
+            ((System.ComponentModel.ISupportInitialize)ResultMatrixGridView).EndInit();
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ResumeLayout(false);
@@ -245,17 +279,17 @@
 
         #endregion
 
-        private DataGridView dataGridView1;
-        private DataGridView dataGridView2;
+        private DataGridView MatrixGridView;
+        private DataGridView ResultMatrixGridView;
         private Label label1;
         private Label label2;
-        private Button button1;
-        private Button button2;
+        private Button ExportButton;
+        private Button SaveButton;
         private GroupBox groupBox1;
-        private RadioButton radioButton3;
-        private RadioButton radioButton2;
-        private RadioButton radioButton1;
-        private Button button3;
+        private RadioButton OperationThreeRButton;
+        private RadioButton OperationTwoRButton;
+        private RadioButton OperationOneRButton;
+        private Button OperationButton;
         private Button BackButton;
     }
 }
