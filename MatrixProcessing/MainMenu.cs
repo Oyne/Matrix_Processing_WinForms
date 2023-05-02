@@ -46,11 +46,18 @@ namespace MatrixProcessing
 
             if (ImportFileDialog.ShowDialog() == DialogResult.OK)
             {
-                _file_name = ImportFileDialog.FileName;
-                string json = File.ReadAllText(_file_name);
-                _matrix.Value = JsonSerializer.Deserialize<int[,]>(json, options);
-                _processing = new MatrixProcessing(_file_name, _matrix);
-                _processing.ShowDialog();
+                try
+                {
+                    _file_name = ImportFileDialog.FileName;
+                    string json = File.ReadAllText(_file_name);
+                    _matrix.Value = JsonSerializer.Deserialize<int[,]>(json, options);
+                    _processing = new MatrixProcessing(_file_name, _matrix);
+                    _processing.ShowDialog();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Can`t read this file", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 

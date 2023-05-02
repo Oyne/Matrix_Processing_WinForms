@@ -286,7 +286,9 @@
             Controls.Add(label1);
             Controls.Add(ResultMatrixGridView);
             Controls.Add(MatrixGridView);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
             Name = "MatrixProcessing";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Matrix Processing";
