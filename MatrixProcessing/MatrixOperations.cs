@@ -20,13 +20,13 @@ namespace MatrixProcessing
         private int[,]? _matrix = null;
 
         /// <summary>
-        /// Array property.
+        /// Matrix property.
         /// </summary>
         public int[,]? Value { get => _matrix; set => _matrix = value; }
 
 
         /// <summary>
-        /// Generates array with specified values.
+        /// Generates Matrix with specified values.
         /// </summary>
         /// <param name="size">Size of matrix.</param>
         /// <param name="min">Min element of matrix.</param>
@@ -40,7 +40,7 @@ namespace MatrixProcessing
         }
 
         /// <summary>
-        /// Clears array
+        /// Clears Matrix
         /// </summary>
         public void Clear()
         {
@@ -48,30 +48,30 @@ namespace MatrixProcessing
         }
 
         /// <summary>
-        /// Find min, max element of array and median.
+        /// Sort elements of array in ascending order in rows, display them in 2d array
         /// </summary>
         /// <returns>Min, max, median.</returns>
         public int[,] OperationOne()
         {
             int[,] copy = (int[,])_matrix.Clone();
             if (copy is not null)
-
                 for (int row = 0; row < copy.GetLength(0); row++)
-
                     for (int col = 0; col < copy.GetLength(1); col++)
-
                         for (int i = col + 1; i < copy.GetLength(1); i++)
-                        {
                             if (copy[row, col] > copy[row, i])
                             {
                                 int tmp = copy[row, i];
                                 copy[row, i] = copy[row, col];
                                 copy[row, col] = tmp;
                             }
-                        }
+   
             return copy;
         }
 
+        /// <summary>
+        /// Calculates Sr
+        /// </summary>
+        /// <returns>Sr of matrix</returns>
         private int Sr()
         {
 
@@ -79,11 +79,12 @@ namespace MatrixProcessing
             for (int i = 0; i < _matrix.GetLength(0); i++)
                 for (int j = 0; j < _matrix.GetLength(1); j++)
                     sum += _matrix[i, j];
+            
             return sum / _matrix.Length;
         }
 
         /// <summary>
-        /// Sort elements in descending order.
+        /// Calculate variance of array elements
         /// </summary>
         public int OperationTwo()
         {
@@ -91,12 +92,12 @@ namespace MatrixProcessing
             for (int i = 0; i < _matrix.GetLength(0); i++)
                 for (int j = 0; j < _matrix.GetLength(1); j++)
                     sum += (int)Math.Pow((_matrix[i, j] - Sr()), 2);
+           
             return sum / (_matrix.Length - 1);
         }
 
         /// <summary>
-        /// Calculate sum and number of elements of the array, 
-        /// in which number created from last and third from end digits, element also must be even.
+        /// Using Trial division method find number of prime numbers with even sum of indicies
         /// </summary>
         /// <returns>Number, sum.</returns>
         public int[,] OperationThree()

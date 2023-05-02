@@ -16,10 +16,29 @@ namespace MatrixProcessing
 {
     public partial class MatrixProccesing : Form
     {
+        /// <summary>
+        /// Name of file where matrix would be saved. 
+        /// </summary>
         string file_name;
+
+        /// <summary>
+        /// Name of file where results would be saved.
+        /// </summary>
         string result_file_name;
+
+        /// <summary>
+        /// Instance of MatrixOperations.
+        /// </summary>
         MatrixOperations matrix;
+
+        /// <summary>
+        /// Matrix for saving results
+        /// </summary>
         int[,] matrix_result;
+
+        /// <summary>
+        /// String for saving results
+        /// </summary>
         string string_result;
 
         public MatrixProccesing(string file_name, MatrixOperations matrix)
@@ -87,6 +106,11 @@ namespace MatrixProcessing
             }
         }
 
+        /// <summary>
+        /// Prints matrix in dataGridView
+        /// </summary>
+        /// <param name="Grid">Grid where matrix would be displayed.</param>
+        /// <param name="matrix">A matrix that needs to be displayed.</param>
         private void MatrixOutput(DataGridView Grid, int[,] matrix)
         {
             int row_col_count = matrix.GetLength(0);

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
@@ -47,6 +48,7 @@
             OperationButton = new Button();
             BackButton = new Button();
             ResultTextBox = new TextBox();
+            MatrixProccesingToolTip = new ToolTip(components);
             ((System.ComponentModel.ISupportInitialize)MatrixGridView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ResultMatrixGridView).BeginInit();
             groupBox1.SuspendLayout();
@@ -162,6 +164,7 @@
             ExportButton.Name = "ExportButton";
             ExportButton.Size = new Size(93, 86);
             ExportButton.TabIndex = 4;
+            MatrixProccesingToolTip.SetToolTip(ExportButton, "Export result in a json file");
             ExportButton.UseVisualStyleBackColor = true;
             ExportButton.Click += ExportButton_Click;
             // 
@@ -175,6 +178,7 @@
             SaveButton.Name = "SaveButton";
             SaveButton.Size = new Size(93, 86);
             SaveButton.TabIndex = 5;
+            MatrixProccesingToolTip.SetToolTip(SaveButton, "Export matrix in a json file");
             SaveButton.UseVisualStyleBackColor = true;
             SaveButton.Click += SaveButton_Click;
             // 
@@ -201,6 +205,7 @@
             OperationThreeRButton.Size = new Size(185, 42);
             OperationThreeRButton.TabIndex = 3;
             OperationThreeRButton.Text = "Operation 3";
+            MatrixProccesingToolTip.SetToolTip(OperationThreeRButton, "Using Trial division method find number of prime numbers with even sum of indicies");
             OperationThreeRButton.UseVisualStyleBackColor = true;
             // 
             // OperationTwoRButton
@@ -212,6 +217,7 @@
             OperationTwoRButton.Size = new Size(185, 42);
             OperationTwoRButton.TabIndex = 2;
             OperationTwoRButton.Text = "Operation 2";
+            MatrixProccesingToolTip.SetToolTip(OperationTwoRButton, "Calculate variance of array elements");
             OperationTwoRButton.UseVisualStyleBackColor = true;
             // 
             // OperationOneRButton
@@ -225,6 +231,7 @@
             OperationOneRButton.TabIndex = 1;
             OperationOneRButton.TabStop = true;
             OperationOneRButton.Text = "Operation 1";
+            MatrixProccesingToolTip.SetToolTip(OperationOneRButton, "Sort elements of array in ascending order in rows, display them in 2d array");
             OperationOneRButton.UseVisualStyleBackColor = true;
             // 
             // OperationButton
@@ -236,6 +243,7 @@
             OperationButton.Size = new Size(182, 69);
             OperationButton.TabIndex = 0;
             OperationButton.Text = "Operation";
+            MatrixProccesingToolTip.SetToolTip(OperationButton, "Do the chosen operation");
             OperationButton.UseVisualStyleBackColor = true;
             OperationButton.Click += OperationButton_Click;
             // 
@@ -249,6 +257,7 @@
             BackButton.Size = new Size(182, 69);
             BackButton.TabIndex = 7;
             BackButton.Text = "Back";
+            MatrixProccesingToolTip.SetToolTip(BackButton, "Back to main menu");
             BackButton.UseVisualStyleBackColor = true;
             BackButton.Click += BackButton_Click;
             // 
@@ -277,6 +286,7 @@
             Controls.Add(label1);
             Controls.Add(ResultMatrixGridView);
             Controls.Add(MatrixGridView);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "MatrixProccesing";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Matrix Proccesing";
@@ -304,5 +314,6 @@
         private Button OperationButton;
         private Button BackButton;
         private TextBox ResultTextBox;
+        private ToolTip MatrixProccesingToolTip;
     }
 }
