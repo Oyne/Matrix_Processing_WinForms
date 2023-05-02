@@ -1,6 +1,6 @@
 ﻿namespace MatrixProcessing
 {
-    partial class MatrixProccesing
+    partial class MatrixProcessing
     {
         /// <summary>
         /// Required designer variable.
@@ -34,7 +34,7 @@
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MatrixProccesing));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MatrixProcessing));
             MatrixGridView = new DataGridView();
             ResultMatrixGridView = new DataGridView();
             label1 = new Label();
@@ -48,7 +48,7 @@
             OperationButton = new Button();
             BackButton = new Button();
             ResultTextBox = new TextBox();
-            MatrixProccesingToolTip = new ToolTip(components);
+            MatrixProcessingToolTip = new ToolTip(components);
             ((System.ComponentModel.ISupportInitialize)MatrixGridView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ResultMatrixGridView).BeginInit();
             groupBox1.SuspendLayout();
@@ -164,7 +164,7 @@
             ExportButton.Name = "ExportButton";
             ExportButton.Size = new Size(93, 86);
             ExportButton.TabIndex = 4;
-            MatrixProccesingToolTip.SetToolTip(ExportButton, "Export result in a json file");
+            MatrixProcessingToolTip.SetToolTip(ExportButton, "Export result in a json file");
             ExportButton.UseVisualStyleBackColor = true;
             ExportButton.Click += ExportButton_Click;
             // 
@@ -178,7 +178,7 @@
             SaveButton.Name = "SaveButton";
             SaveButton.Size = new Size(93, 86);
             SaveButton.TabIndex = 5;
-            MatrixProccesingToolTip.SetToolTip(SaveButton, "Export matrix in a json file");
+            MatrixProcessingToolTip.SetToolTip(SaveButton, "Export matrix in a json file");
             SaveButton.UseVisualStyleBackColor = true;
             SaveButton.Click += SaveButton_Click;
             // 
@@ -205,7 +205,7 @@
             OperationThreeRButton.Size = new Size(185, 42);
             OperationThreeRButton.TabIndex = 3;
             OperationThreeRButton.Text = "Operation 3";
-            MatrixProccesingToolTip.SetToolTip(OperationThreeRButton, "Using Trial division method find number of prime numbers with even sum of indicies");
+            MatrixProcessingToolTip.SetToolTip(OperationThreeRButton, "Using Trial division method find number of prime numbers with even sum of indicies");
             OperationThreeRButton.UseVisualStyleBackColor = true;
             // 
             // OperationTwoRButton
@@ -217,7 +217,7 @@
             OperationTwoRButton.Size = new Size(185, 42);
             OperationTwoRButton.TabIndex = 2;
             OperationTwoRButton.Text = "Operation 2";
-            MatrixProccesingToolTip.SetToolTip(OperationTwoRButton, "Calculate variance of array elements");
+            MatrixProcessingToolTip.SetToolTip(OperationTwoRButton, "Calculate variance of array elements");
             OperationTwoRButton.UseVisualStyleBackColor = true;
             // 
             // OperationOneRButton
@@ -231,7 +231,7 @@
             OperationOneRButton.TabIndex = 1;
             OperationOneRButton.TabStop = true;
             OperationOneRButton.Text = "Operation 1";
-            MatrixProccesingToolTip.SetToolTip(OperationOneRButton, "Sort elements of array in ascending order in rows, display them in 2d array");
+            MatrixProcessingToolTip.SetToolTip(OperationOneRButton, "Sort elements of array in ascending order in rows, display them in 2d array");
             OperationOneRButton.UseVisualStyleBackColor = true;
             // 
             // OperationButton
@@ -243,7 +243,7 @@
             OperationButton.Size = new Size(182, 69);
             OperationButton.TabIndex = 0;
             OperationButton.Text = "Operation";
-            MatrixProccesingToolTip.SetToolTip(OperationButton, "Do the chosen operation");
+            MatrixProcessingToolTip.SetToolTip(OperationButton, "Do the chosen operation");
             OperationButton.UseVisualStyleBackColor = true;
             OperationButton.Click += OperationButton_Click;
             // 
@@ -257,7 +257,7 @@
             BackButton.Size = new Size(182, 69);
             BackButton.TabIndex = 7;
             BackButton.Text = "Back";
-            MatrixProccesingToolTip.SetToolTip(BackButton, "Back to main menu");
+            MatrixProcessingToolTip.SetToolTip(BackButton, "Back to main menu");
             BackButton.UseVisualStyleBackColor = true;
             BackButton.Click += BackButton_Click;
             // 
@@ -271,7 +271,7 @@
             ResultTextBox.Size = new Size(342, 27);
             ResultTextBox.TabIndex = 8;
             // 
-            // MatrixProccesing
+            // MatrixProcessing
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -287,9 +287,9 @@
             Controls.Add(ResultMatrixGridView);
             Controls.Add(MatrixGridView);
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Name = "MatrixProccesing";
+            Name = "MatrixProcessing";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Matrix Proccesing";
+            Text = "Matrix Processing";
             Load += MatrixProccesing_Load;
             ((System.ComponentModel.ISupportInitialize)MatrixGridView).EndInit();
             ((System.ComponentModel.ISupportInitialize)ResultMatrixGridView).EndInit();
@@ -314,6 +314,6 @@
         private Button OperationButton;
         private Button BackButton;
         private TextBox ResultTextBox;
-        private ToolTip MatrixProccesingToolTip;
+        private ToolTip MatrixProcessingToolTip;
     }
 }

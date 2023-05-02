@@ -14,7 +14,7 @@ using static System.Windows.Forms.Design.AxImporter;
 
 namespace MatrixProcessing
 {
-    public partial class MatrixProccesing : Form
+    public partial class MatrixProcessing : Form
     {
         /// <summary>
         /// Name of file where matrix would be saved. 
@@ -41,7 +41,7 @@ namespace MatrixProcessing
         /// </summary>
         string string_result;
 
-        public MatrixProccesing(string file_name, MatrixOperations matrix)
+        public MatrixProcessing(string file_name, MatrixOperations matrix)
         {
             this.file_name = file_name;
             this.matrix = matrix;

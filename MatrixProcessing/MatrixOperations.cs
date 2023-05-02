@@ -93,7 +93,7 @@ namespace MatrixProcessing
                 for (int j = 0; j < _matrix.GetLength(1); j++)
                     sum += (int)Math.Pow((_matrix[i, j] - Sr()), 2);
            
-            return sum / (_matrix.Length - 1);
+            return sum / _matrix.Length;
         }
 
         /// <summary>
@@ -117,7 +117,7 @@ namespace MatrixProcessing
                             break;
                         }
                     }
-                    if (flag)
+                    if (flag && _matrix[i, j] != 0)
                     {
                         if ((i + j) % 2 == 0)
                         {
