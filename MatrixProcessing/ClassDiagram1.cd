@@ -1,2 +1,92 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram /> 
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="MatrixProcessing.Author">
+    <Position X="0.5" Y="0.5" Width="2" />
+    <Members>
+      <Field Name="AuthorInformationLabel" Hidden="true" />
+      <Field Name="AuthorPicture" Hidden="true" />
+      <Field Name="AuthorToolTip" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Field Name="GitHubPicture" Hidden="true" />
+      <Field Name="GmailPicture" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Field Name="TelegramPicture" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AQEAAAAAACAAAEEQACCAAAACAAAAAAAAEAAABAAIAAA=</HashCode>
+      <FileName>Author.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MatrixProcessing.MainMenu">
+    <Position X="2.75" Y="0.5" Width="2.25" />
+    <Members>
+      <Field Name="AuthorButton" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Field Name="GenerateButton" Hidden="true" />
+      <Field Name="groupBox1" Hidden="true" />
+      <Field Name="ImportButton" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Field Name="MainMenuToolTip" Hidden="true" />
+      <Field Name="MaxLabel" Hidden="true" />
+      <Field Name="MaxUpDown" Hidden="true" />
+      <Field Name="MinLabel" Hidden="true" />
+      <Field Name="MinUpDown" Hidden="true" />
+      <Field Name="SizeLabel" Hidden="true" />
+      <Field Name="SizeUpDown" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAEAIAFICQBAAAAKAGAAAACIAAgAIAAACAAgQAoQAA=</HashCode>
+      <FileName>MainMenu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MatrixProcessing.MatrixOperations">
+    <Position X="5.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAQABAAAAAAAAAAAAAAAAIAAAAAAAAIgAQBAAAA=</HashCode>
+      <FileName>MatrixOperations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MatrixProcessing.TwoDimensionalIntArrayJsonConverter">
+    <Position X="3" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>MatrixOperations.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MatrixProcessing.MatrixProcessing">
+    <Position X="0.5" Y="2.75" Width="2" />
+    <Members>
+      <Field Name="BackButton" Hidden="true" />
+      <Field Name="components" Hidden="true" />
+      <Method Name="Dispose" Hidden="true" />
+      <Field Name="ExportButton" Hidden="true" />
+      <Field Name="groupBox1" Hidden="true" />
+      <Method Name="InitializeComponent" Hidden="true" />
+      <Field Name="label1" Hidden="true" />
+      <Field Name="label2" Hidden="true" />
+      <Field Name="MatrixGridView" Hidden="true" />
+      <Field Name="MatrixProcessingToolTip" Hidden="true" />
+      <Field Name="OperationButton" Hidden="true" />
+      <Field Name="OperationOneRButton" Hidden="true" />
+      <Field Name="OperationThreeRButton" Hidden="true" />
+      <Field Name="OperationTwoRButton" Hidden="true" />
+      <Field Name="ResultMatrixGridView" Hidden="true" />
+      <Field Name="ResultTextBox" Hidden="true" />
+      <Field Name="SaveButton" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>BACQAEQQAiAgQBCAAIDFAC0CBAEAAAAACCAAACAAAAA=</HashCode>
+      <FileName>MatrixProcessing.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MatrixProcessing.Program">
+    <Position X="5.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

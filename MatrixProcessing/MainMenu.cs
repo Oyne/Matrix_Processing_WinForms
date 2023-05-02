@@ -5,7 +5,7 @@ namespace MatrixProcessing
     public partial class MainMenu : Form
     {
         private Author? _author;
-        private MatrixProcessing? _proccesing;
+        private MatrixProcessing? _processing;
         private string _file_name;
         private MatrixOperations _matrix = new MatrixOperations();
 
@@ -49,8 +49,8 @@ namespace MatrixProcessing
                 _file_name = ImportFileDialog.FileName;
                 string json = File.ReadAllText(_file_name);
                 _matrix.Value = JsonSerializer.Deserialize<int[,]>(json, options);
-                _proccesing = new MatrixProcessing(_file_name, _matrix);
-                _proccesing.ShowDialog();
+                _processing = new MatrixProcessing(_file_name, _matrix);
+                _processing.ShowDialog();
             }
         }
 
@@ -61,8 +61,8 @@ namespace MatrixProcessing
             else
             {
                 _matrix.GenerateMatrix(Convert.ToInt32(SizeUpDown.Value), Convert.ToInt32(MinUpDown.Value), Convert.ToInt32(MaxUpDown.Value));
-                _proccesing = new MatrixProcessing(_file_name, _matrix);
-                _proccesing.ShowDialog();
+                _processing = new MatrixProcessing(_file_name, _matrix);
+                _processing.ShowDialog();
             }
         }
     }
