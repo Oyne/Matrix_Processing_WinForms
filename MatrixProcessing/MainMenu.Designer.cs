@@ -32,11 +32,12 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenu));
             AuthorButton = new Button();
             MainMenuToolTip = new ToolTip(components);
+            GenerateButton = new Button();
+            ImportButton = new Button();
             groupBox1 = new GroupBox();
             MaxLabel = new Label();
             MinLabel = new Label();
             SizeLabel = new Label();
-            GenerateButton = new Button();
             MaxUpDown = new NumericUpDown();
             MinUpDown = new NumericUpDown();
             SizeUpDown = new NumericUpDown();
@@ -52,13 +53,41 @@
             AuthorButton.FlatAppearance.BorderSize = 0;
             AuthorButton.FlatStyle = FlatStyle.Flat;
             AuthorButton.Image = (Image)resources.GetObject("AuthorButton.Image");
-            AuthorButton.Location = new Point(223, 56);
+            AuthorButton.Location = new Point(223, 27);
             AuthorButton.Name = "AuthorButton";
-            AuthorButton.Size = new Size(126, 130);
+            AuthorButton.Size = new Size(93, 86);
             AuthorButton.TabIndex = 0;
             MainMenuToolTip.SetToolTip(AuthorButton, "Information about author");
             AuthorButton.UseVisualStyleBackColor = true;
-            AuthorButton.Click += button1_Click;
+            AuthorButton.Click += AuthorButton_Click;
+            // 
+            // GenerateButton
+            // 
+            GenerateButton.BackColor = Color.FromArgb(64, 64, 64);
+            GenerateButton.FlatAppearance.BorderColor = Color.FromArgb(255, 224, 192);
+            GenerateButton.FlatStyle = FlatStyle.Flat;
+            GenerateButton.Location = new Point(6, 167);
+            GenerateButton.Name = "GenerateButton";
+            GenerateButton.Size = new Size(193, 44);
+            GenerateButton.TabIndex = 3;
+            GenerateButton.Text = "Generate";
+            MainMenuToolTip.SetToolTip(GenerateButton, "Generates matrix with specified size, min and max value");
+            GenerateButton.UseVisualStyleBackColor = false;
+            GenerateButton.Click += GenerateButton_Click;
+            // 
+            // ImportButton
+            // 
+            ImportButton.BackgroundImage = (Image)resources.GetObject("ImportButton.BackgroundImage");
+            ImportButton.BackgroundImageLayout = ImageLayout.Center;
+            ImportButton.FlatAppearance.BorderSize = 0;
+            ImportButton.FlatStyle = FlatStyle.Flat;
+            ImportButton.Location = new Point(223, 139);
+            ImportButton.Name = "ImportButton";
+            ImportButton.Size = new Size(93, 86);
+            ImportButton.TabIndex = 2;
+            MainMenuToolTip.SetToolTip(ImportButton, "Import from a file");
+            ImportButton.UseVisualStyleBackColor = true;
+            ImportButton.Click += ImportButton_Click;
             // 
             // groupBox1
             // 
@@ -104,19 +133,6 @@
             SizeLabel.TabIndex = 4;
             SizeLabel.Text = "Size [x, x]";
             // 
-            // GenerateButton
-            // 
-            GenerateButton.BackColor = Color.FromArgb(64, 64, 64);
-            GenerateButton.FlatAppearance.BorderColor = Color.FromArgb(255, 224, 192);
-            GenerateButton.FlatStyle = FlatStyle.Flat;
-            GenerateButton.Location = new Point(6, 167);
-            GenerateButton.Name = "GenerateButton";
-            GenerateButton.Size = new Size(193, 44);
-            GenerateButton.TabIndex = 3;
-            GenerateButton.Text = "Generate";
-            MainMenuToolTip.SetToolTip(GenerateButton, "Generates matrix with specified size, min and max value");
-            GenerateButton.UseVisualStyleBackColor = false;
-            // 
             // MaxUpDown
             // 
             MaxUpDown.Location = new Point(83, 124);
@@ -146,7 +162,8 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(64, 64, 64);
-            ClientSize = new Size(356, 234);
+            ClientSize = new Size(323, 234);
+            Controls.Add(ImportButton);
             Controls.Add(groupBox1);
             Controls.Add(AuthorButton);
             FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -174,5 +191,6 @@
         private NumericUpDown MaxUpDown;
         private NumericUpDown MinUpDown;
         private NumericUpDown SizeUpDown;
+        private Button ImportButton;
     }
 }
