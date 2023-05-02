@@ -150,6 +150,7 @@
             Controls.Add(groupBox1);
             Controls.Add(AuthorButton);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             Name = "MainMenu";
             StartPosition = FormStartPosition.CenterScreen;

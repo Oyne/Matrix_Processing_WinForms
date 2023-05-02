@@ -120,6 +120,7 @@
             Controls.Add(AuthorPicture);
             Controls.Add(GitHubPicture);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             Name = "Author";
             StartPosition = FormStartPosition.CenterScreen;

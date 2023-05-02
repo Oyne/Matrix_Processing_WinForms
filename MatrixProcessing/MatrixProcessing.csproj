@@ -6,7 +6,20 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+    <PackageIcon>matrix.png</PackageIcon>
+    <ApplicationIcon>matrix.ico</ApplicationIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="matrix.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="D:\2 Курс\2 Семестр\ТП\Лабораторна робота 4\matrix.png">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <Compile Update="Properties\Resources.Designer.cs">
